@@ -1,4 +1,4 @@
-const API_BASE = 'https://stakingbackend.onrender.com'
+const API_BASE = 'https://stakingbackend-production.up.railway.app'
 
 let token = localStorage.getItem('scmd_token') || ''
 
