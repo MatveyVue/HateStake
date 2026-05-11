@@ -25,44 +25,47 @@
   <div class="btn-container">
     <button class="balance-btn-active" type="button" @click="handleDeposit">
       <img style="width: 20px; margin-left: -85px; margin-top: 5px;" src="https://github.com/MatveyVue/Profiles-Telegram/blob/main/Balance.PNG?raw=true">
-      <p style="margin-top: -23px; margin-left: 60px; position: absolute;">Deposit</p>
+      <p style="margin-top: -25px; margin-left: 65px; position: absolute;">Deposit</p>
     </button>
     <button class="balance-btn" type="button" @click="handleWithdraw">
       <img style="width: 20px; margin-left: -100px; margin-top: 5px; transform: rotate(180deg);" src="https://github.com/MatveyVue/Profiles-Telegram/blob/main/Balance.PNG?raw=true">
-      <p style="margin-top: -23px; margin-left: 60px; position: absolute;">Withdraw</p>
+      <p style="margin-top: -25px; margin-left: 65px; position: absolute;">Withdraw</p>
     </button>
   </div>
 
 <div style="margin-top: 25px;" class="claim-container">
   <img style="width: 60px; margin-top: 2px; margin-left: -10px;" src="https://github.com/MatveyVue/Profiles-Telegram/blob/main/Timer.PNG?raw=true">
-  <p style="font-size: 12px; color: #6e6e6e; margin-top: -30px; margin-left: -10px;">Next Claim</p>
-  <p style="font-size: 18px; margin-left: -74px; margin-top: 8px;">12h 43m</p>
+  <p style="font-size: 12px; color: #6e6e6e; margin-top: -25px; margin-left: -10px;">Next Claim</p>
+  <p style="font-size: 18px; margin-left: -74px; margin-top: 10px;">12h 43m</p>
   <button style="background-color: #111217; border: none; float: right; margin-top: -5px; margin-right: 5px;">
     <img style="width: 25px;" src="https://github.com/MatveyVue/Profiles-Telegram/blob/main/next.PNG?raw=true">
   </button>
 </div>
 
 <div class="history-container">
-  <p style="color: rgb(30, 88, 215); font-size: 12px; float: right; margin-top: 5px; margin-right: 20px;">View All</p>
-  <p style="color: #6e6e6e; font-size: 12px; margin-left: 20px; margin-top: 5px;">RECENT ACTIVITY</p>
+  <p style="color: rgb(30, 88, 215); font-size: 12px; float: right; margin-top: 5px; margin-right: 10px;">View All</p>
+  <p style="color: #6e6e6e; font-size: 12px; margin-left: 12px; margin-top: 5px;">RECENT ACTIVITY</p>
 
   <div v-if="activityLoading" class="transaction-container">
     <p class="name-transaction">Loading activity...</p>
   </div>
 
   <div v-else-if="activityList.length === 0" class="transaction-container">
-    <p style="margin-left: 20px;" class="name-transaction">No activity yet</p>
+    <p style="margin-left: 12px;" class="name-transaction">No activity yet</p>
   </div>
 
-  <div v-else v-for="item in activityList" :key="item.created_at + item.type" class="transaction-container">
-    <img style="width: 70px;" :src="getActivityIcon(item.type)">
-    <p class="name-transaction">{{ getActivityTitle(item.type) }}</p>
-    <p class="date-transaction">{{ formatActivityDate(item.created_at) }}</p>
-    <p class="sum-transaction" :class="getActivityClass(item.type)">{{ formatActivityAmount(item.amount, item.type) }}</p>
-    <p class="token-transaction">SCMD69</p>
-    <hr style="width: 90%; border: 0; height: 1px; background: #18191e;">
+  <div style="margin-left: -10px; margin-top: -10px;" v-else v-for="item in activityList" :key="item.created_at + item.type" class="transaction-container">
+   <img style="width: 70px;" :src="getActivityIcon(item.type)">
+    <p style="margin-top: -15px; margin-left: -15px;" class="name-transaction">{{ getActivityTitle(item.type) }}</p>
+    <p style="margin-top: -75px; margin-left: 65px;" class="date-transaction">{{ formatActivityDate(item.created_at) }}</p>
+    <p style="position: absolute; right: 5px; margin-top: -40px;" class="sum-transaction" :class="getActivityClass(item.type)">{{ formatActivityAmount(item.amount, item.type) }}</p>
+    <p style="position: absolute; right: 5px; margin-top: -8px;" class="token-transaction">SCMD69</p>
+    <hr style="width: 90%; border: 0; height: 1px; background: #18191e; margin-top: -50px; margin-left: 25px;">
   </div>
 </div>
+<p style="color: #0a0b0d;">.</p>
+<p style="color: #0a0b0d;">.</p>
+<p style="color: #0a0b0d;">.</p>
 </div>
 </div>
 
@@ -664,7 +667,8 @@ setTimeout(function() {
 }
 
 .sum-transaction {
-  float: right;
+  display: flex;
+  justify-content: flex-end;
   font-size: 14px;
   margin-top: -44px;
   margin-right: 15px;
