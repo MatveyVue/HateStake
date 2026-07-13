@@ -1,4 +1,5 @@
 const API_BASE = 'https://stakingbackend.onrender.com'
+
 let token = localStorage.getItem('scmd_token') || ''
 export async function telegramAuth() {
   const initData = window.Telegram?.WebApp?.initData || ''
